@@ -15,15 +15,18 @@ exports.visit = async function visit({ count, url, headless }) {
 
   // Using for - of, for better async-await support
   for (const idx of arr) {
-    const spinner = ora(`${idx + 1}. Visiting ${url}...`).start();
+    const spinner = ora(`${idx}. Visiting page ${url}...`).start();
     const { browser, browserPage } = await createBrowser(headless);
     try {
       await browserPage.goto(url, { waitUntil: 'networkidle2' });
       await browserPage.evaluate(() => {});
+			spinner.succeed();
     } catch (error) {
-			console.error(chalk.red(`visit got error: `), error);
-    }
-    spinner.stop();
+			spinner.fail();
+			console.error(chalk.red(`💥 We got error: `), error);
+		}
     await browser.close();
-  }
+	}
+
+	console.info(chalk.greenBright(`\n🤩 Finish visiting the page!`));
 };
