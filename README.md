@@ -4,6 +4,8 @@ Visit your web page easier using CLI and config file, powered by Puppeteer
 
 ![License](https://img.shields.io/github/license/mazipan/visit-me.svg?maxAge=3600) [![version](https://img.shields.io/npm/v/visit-me.svg?maxAge=60)](https://www.npmjs.com/package/visit-me) ![downloads](https://img.shields.io/npm/dt/visit-me.svg?maxAge=3600)
 
+![Visit Me Command](screenshoot.png)
+
 ## Install
 
 ```
