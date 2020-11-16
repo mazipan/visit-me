@@ -1,0 +1,22 @@
+{
+  "name": "visit-me",
+  "version": "0.0.1",
+  "description": "Visit your web page easier using CLI and config file, powered by Puppeteer",
+  "main": "src/index.js",
+  "repository": "https://github.com/mazipan/visit-me",
+  "author": "Irfan Maulana <mazipan.space>",
+  "license": "MIT",
+  "bin": {
+    "visit-me": "bin/visit-me.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "ora": "^5.1.0",
+    "puppeteer": "^5.4.1",
+    "yargs": "^16.1.1"
+  }
+}
