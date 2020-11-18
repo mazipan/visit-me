@@ -1,14 +1,13 @@
 const ora = require('ora');
 const chalk = require('chalk');
-const { createBrowser } = require('./utils');
+const fetch = require('node-fetch');
 
 /**
  * @param {number} count
  * @param {string} url
- * @param {boolean} headless
  * @param {Function} callback
  */
-exports.visitPuppeteer = async function visitPuppeteer({ count, url, headless, callback = () => {} }) {
+exports.visitFetch = async function visitFetch({ count, url, callback = () => {} }) {
   const arr = [];
   for (let i = 0; i < count; i++) {
     arr.push(i + 1);
@@ -19,16 +18,10 @@ exports.visitPuppeteer = async function visitPuppeteer({ count, url, headless, c
   for (const idx of arr) {
 		const hrstartSegment = process.hrtime();
     const spinner = ora(`${idx}. Visiting page ${url}`).start();
-    const { browser, browserPage } = await createBrowser(headless);
     try {
-      await browserPage.goto(url, { waitUntil: 'networkidle2' });
-      const res = await browserPage.evaluate(() => {
-				return {
-					document: document,
-					html: new XMLSerializer().serializeToString(document.doctype) + document.documentElement.outerHTML,
-				};
-			});
-			callback && callback(res);
+			const resp = await fetch(url);
+			const body = await resp.text();
+			callback && callback(body);
 			const hrendSegment = process.hrtime(hrstartSegment);
 			spinner.succeed(`${idx}. Success visiting the page in ${hrendSegment[0]}s`);
     } catch (error) {
@@ -36,7 +29,6 @@ exports.visitPuppeteer = async function visitPuppeteer({ count, url, headless, c
 			spinner.fail(`${idx}. Failed visiting the page in ${hrendSegment[0]}s`);
 			console.error(chalk.red(`💥 We got error: `), error);
 		}
-    await browser.close();
 	}
 
 	console.info(chalk.greenBright(`\n🤩 Finish visiting the page!\n`));

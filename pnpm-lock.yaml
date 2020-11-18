@@ -1,5 +1,6 @@
 dependencies:
   chalk: 4.1.0
+  node-fetch: 2.6.1
   ora: 5.1.0
   puppeteer: 5.4.1
   yargs: 16.1.1
@@ -604,7 +605,8 @@ packages:
     resolution:
       integrity: sha1-x+sXyT4RLLEIb6bY5R+wZnt5pfk=
 specifiers:
-  chalk: ^4.1.0
-  ora: ^5.1.0
-  puppeteer: ^5.4.1
-  yargs: ^16.1.1
+  chalk: 4.1.0
+  node-fetch: ^2.6.1
+  ora: 5.1.0
+  puppeteer: 5.4.1
+  yargs: 16.1.1

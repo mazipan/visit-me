@@ -1,6 +1,6 @@
 {
   "name": "visit-me",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Visit your web page easier using CLI and config file, powered by Puppeteer",
   "main": "src/index.js",
   "repository": "https://github.com/mazipan/visit-me",
@@ -15,11 +15,12 @@
   ],
   "dependencies": {
     "chalk": "4.1.0",
+    "node-fetch": "^2.6.1",
     "ora": "5.1.0",
     "puppeteer": "5.4.1",
     "yargs": "16.1.1"
-	},
-	"engines": {
-		"node": ">= 12"
-	}
+  },
+  "engines": {
+    "node": ">= 12"
+  }
 }
