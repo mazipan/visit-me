@@ -18,6 +18,12 @@ const options = argv
   .describe('count', 'Visit count')
   .default('c', 1)
 
+	// use mobile device
+  .boolean(['m'])
+  .alias('m', 'mobile')
+  .describe('m', 'Use mobile device')
+	.default('m', false)
+
 	// HEADLESS PARAM
   .boolean(['ui'])
   .alias('ui', 'show-ui')
@@ -29,6 +35,17 @@ const options = argv
   .alias('sm', 'simple-mode')
   .describe('sm', 'Use simple mode, not using Puppeteer')
 	.default('sm', false)
+
+	// use Bot UserAgent
+  .boolean(['b'])
+  .alias('b', 'bot')
+  .describe('b', 'Use Bot Google user Agent')
+	.default('b', false)
+
+	// URL PARAM
+  .alias('ua', 'agent')
+	.describe('ua', 'Custom user agent string')
+	.default('ua', '')
 
   .demandOption(['u'])
 
@@ -47,6 +64,9 @@ if (options.url) {
 			count: options.count || 1,
 			url: options.url,
 			headless: !options.ui,
+			bot: options.b,
+			ua: options.ua,
+			mobile: options.m,
 		});
 	}
 }
