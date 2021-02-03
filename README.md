@@ -23,7 +23,7 @@ $ visit-me -u [YOUR_WEB_URL]
 | Argument        | Alias | Description                             | Data Type | Default Value |
 | --------------- | ----- | --------------------------------------- | --------- | ------------- |
 | `--count`       | `-c`  | Visit count                             | `number`  | `1`           |
-| `--mobile`      | `-mm` | Using mobile device                     | `boolean` | `false`       |
+| `--mobile`      | `-m`  | Using mobile device                     | `boolean` | `false`       |
 | `--show-ui`     | `-ui` | Show the browser when visiting          | `boolean` | `false`       |
 | `--simple-mode` | `-sm` | Use `node-fetch` instead of `puppeteer` | `boolean` | `false`       |
 | `--bot`         | `-b`  | Use Bot user agent                      | `boolean` | `false`       |
